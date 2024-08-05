@@ -1,9 +1,9 @@
 require("esbuild")
   .build({
-    entryPoints: ["index.js"],
+    entryPoints: ["form-submission.js", "home-page.js"],
     bundle: true,
     minify: true,
     sourcemap: true,
-    outfile: "dist/index.js",
+    outdir: "dist",
   })
   .catch(() => process.exit(1));

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "serve",
-    "build": "esbuild idx.js --bundle --outfile=dist/index.js --watch",
+    "build": "esbuild form-submission.js --bundle --outfile=dist/form-submission.js --watch",
     "build-by-file": "node builder.js"
   },
   "author": "",
