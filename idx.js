@@ -25,6 +25,20 @@ window.Webflow?.push(async () => {
         attributes: true, // Configure it to listen to attribute changes
       });
 
+      // Find select elements 
+      stateElement = document.getElementById('State')
+      dayElement = document.getElementById('Day')
+      monthElement = document.getElementById('Month')
+      yearElement = document.getElementById('Year')
+      stateElement.style.webkitAppearance = 'none'; /* Safari and Chrome */
+      stateElement.style.mozAppearance = 'none'; 
+      dayElement.style.webkitAppearance = 'none'; /* Safari and Chrome */
+      dayElement.style.mozAppearance = 'none'; 
+      monthElement.style.webkitAppearance = 'none'; /* Safari and Chrome */
+      monthElement.style.mozAppearance = 'none'; 
+      yearElement.style.webkitAppearance = 'none'; /* Safari and Chrome */
+      yearElement.style.mozAppearance = 'none'; 
+
       // 2. Find the error and success divs
       errorDiv = emailForm.parentElement.querySelector(
         '[data-name-form="error"]'
