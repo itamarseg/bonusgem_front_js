@@ -1,0 +1,18 @@
+{
+  "name": "bonusgem_front_js",
+  "version": "1.0.0",
+  "description": "Bonus Gem JS files for Webflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "serve",
+    "build": "esbuild idx.js --bundle --outfile=dist/index.js --watch",
+    "build-by-file": "node builder.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.23.0",
+    "serve": "^14.2.3"
+  }
+}
