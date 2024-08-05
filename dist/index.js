@@ -23,14 +23,10 @@
         dayElement = document.getElementById("Day");
         monthElement = document.getElementById("Month");
         yearElement = document.getElementById("Year");
-        stateElement.style.webkitAppearance = "none";
-        stateElement.style.mozAppearance = "none";
-        dayElement.style.webkitAppearance = "none";
-        dayElement.style.mozAppearance = "none";
-        monthElement.style.webkitAppearance = "none";
-        monthElement.style.mozAppearance = "none";
-        yearElement.style.webkitAppearance = "none";
-        yearElement.style.mozAppearance = "none";
+        stateElement.style.appearance = "none";
+        dayElement.style.appearance = "none";
+        monthElement.style.appearance = "none";
+        yearElement.style.appearance = "none";
         errorDiv = emailForm.parentElement.querySelector(
           '[data-name-form="error"]'
         );
