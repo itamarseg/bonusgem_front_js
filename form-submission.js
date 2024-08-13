@@ -25,15 +25,14 @@ window.Webflow?.push(async () => {
         attributes: true, // Configure it to listen to attribute changes
       });
 
-      // Find select elements 
-      stateElement = document.getElementById('State')
-      dayElement = document.getElementById('Day')
-      monthElement = document.getElementById('Month')
-      yearElement = document.getElementById('Year')
-      stateElement.style.appearance = 'none'; 
-      dayElement.style.appearance = 'none';  
-      monthElement.style.appearance = 'none';
-      yearElement.style.appearance = 'none'; 
+      // Find select elements
+      nameElement = document.getElementById("name");
+      emailElement = document.getElementById("email");
+      dateElement = document.getElementById("Date");
+
+      nameElement.style.appearance = "none";
+      emailElement.style.appearance = "none";
+      dateElement.style.appearance = "none";
 
       // 2. Find the error and success divs
       errorDiv = emailForm.parentElement.querySelector(
@@ -46,6 +45,45 @@ window.Webflow?.push(async () => {
 
       errorDiv.style.display = "none";
       successDiv.style.display = "none";
+
+      // Google Sign-In button
+      google.accounts.id.initialize({
+        client_id:
+          "597521131034-6amd34ifc637c39bhu2dvclns4aptnna.apps.googleusercontent.com",
+        callback: handleGoogleCredentialResponse,
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("google-signin-button"),
+        {
+          theme: "outline",
+          size: "large",
+          width: "400",
+          logo_alignment: "center",
+          // type: 'icon'
+        }
+      );
+
+      // Handle Google Sign-In response
+      async function handleGoogleCredentialResponse(response) {
+        const data = jwt_decode(response.credential);
+        const userEmail = data.email;
+        const fullName = data.name;
+        console.log(userEmail, fullName);
+
+        // Automatically fill in the email field with the user's Google email
+        if (emailElement) {
+          console.log(userEmail, fullName);
+          emailElement.value = userEmail;
+        }
+
+        // Automatically fill in the name field with the user's Google full name
+        if (nameElement) {
+          nameElement.value = fullName;
+        }
+        
+        // Optionally submit the form automatically after Google Sign-In
+        // emailForm.dispatchEvent(new Event("submit"));
+      }
 
       // 3. Add our own submit handler
       emailForm.onsubmit = async (event) => {
@@ -82,8 +120,7 @@ window.Webflow?.push(async () => {
           const data = {
             full_name: formObj.name,
             email: formObj.email,
-            state: formObj.State,
-            birth_day: `${formObj.Year}-${formObj.Month}-${formObj.Day}`,
+            birth_day: formObj.Date,
             affiliate: aff,
             transaction_id: tid,
             s1: s1,
@@ -94,9 +131,11 @@ window.Webflow?.push(async () => {
             user_agent: userAgent,
           };
           console.log("data to send to server:", data);
-          // 6. Send the data to the server
+          // 6. Send the data to the server 
+          // https://bonusgem-api-afvof.ondigitalocean.app/v1/submission
+          //http://127.0.0.1:8000/v1/submission
           const response = await fetch(
-            "https://bonusgem-api-afvof.ondigitalocean.app/v1/submission",
+            "http://127.0.0.1:8000/v1/submission",
             {
               method: "POST",
               body: JSON.stringify(data),

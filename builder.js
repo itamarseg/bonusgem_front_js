@@ -1,6 +1,6 @@
 require("esbuild")
   .build({
-    entryPoints: ["form-submission.js", "home-page.js"],
+    entryPoints: ["form-submission.js", "home-page.js", "datepicker-extra.css", "datepicker.css"],
     bundle: true,
     minify: true,
     sourcemap: true,
