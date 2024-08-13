@@ -33,7 +33,7 @@ window.Webflow?.push(async () => {
       nameElement.style.appearance = "none";
       nameElement.style.borderRadius = 0;
       emailElement.style.appearance = "none";
-      emailForm.style.borderRadius = 0;
+      emailElement.style.borderRadius = 0;
       dateElement.style.appearance = "none";
       dateElement.style.borderRadius = 0;
 
@@ -60,7 +60,7 @@ window.Webflow?.push(async () => {
         {
           theme: "outline",
           size: "large",
-          width: "auto",
+          // width: "auto",
           logo_alignment: "center",
           // type: 'icon'
         }
@@ -71,7 +71,6 @@ window.Webflow?.push(async () => {
         const data = jwt_decode(response.credential);
         const userEmail = data.email;
         const fullName = data.name;
-        console.log(userEmail, fullName);
 
         // Automatically fill in the email field with the user's Google email
         if (emailElement) {
@@ -138,7 +137,7 @@ window.Webflow?.push(async () => {
           // https://bonusgem-api-afvof.ondigitalocean.app/v1/submission
           //http://127.0.0.1:8000/v1/submission
           const response = await fetch(
-            "http://127.0.0.1:8000/v1/submission",
+            "https://lobster-app-y7aqm.ondigitalocean.app/v1/submission",
             {
               method: "POST",
               body: JSON.stringify(data),
