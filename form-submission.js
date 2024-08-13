@@ -137,7 +137,7 @@ window.Webflow?.push(async () => {
           // https://bonusgem-api-afvof.ondigitalocean.app/v1/submission
           //http://127.0.0.1:8000/v1/submission
           const response = await fetch(
-            "lobster-app-y7aqm.ondigitalocean.app/v1/submission",
+            "https://lobster-app-y7aqm.ondigitalocean.app/v1/submission",
             {
               method: "POST",
               body: JSON.stringify(data),
