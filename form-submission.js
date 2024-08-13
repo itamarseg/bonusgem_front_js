@@ -31,8 +31,11 @@ window.Webflow?.push(async () => {
       dateElement = document.getElementById("Date");
 
       nameElement.style.appearance = "none";
+      nameElement.style.borderRadius = 0;
       emailElement.style.appearance = "none";
+      emailForm.style.borderRadius = 0;
       dateElement.style.appearance = "none";
+      dateElement.style.borderRadius = 0;
 
       // 2. Find the error and success divs
       errorDiv = emailForm.parentElement.querySelector(
@@ -57,7 +60,7 @@ window.Webflow?.push(async () => {
         {
           theme: "outline",
           size: "large",
-          width: "400",
+          width: "auto",
           logo_alignment: "center",
           // type: 'icon'
         }
@@ -80,7 +83,7 @@ window.Webflow?.push(async () => {
         if (nameElement) {
           nameElement.value = fullName;
         }
-        
+
         // Optionally submit the form automatically after Google Sign-In
         // emailForm.dispatchEvent(new Event("submit"));
       }
