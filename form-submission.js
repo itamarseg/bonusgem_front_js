@@ -50,42 +50,42 @@ window.Webflow?.push(async () => {
       successDiv.style.display = "none";
 
       // Google Sign-In button
-      google.accounts.id.initialize({
-        client_id:
-          "597521131034-6amd34ifc637c39bhu2dvclns4aptnna.apps.googleusercontent.com",
-        callback: handleGoogleCredentialResponse,
-      });
-      google.accounts.id.renderButton(
-        document.getElementById("google-signin-button"),
-        {
-          theme: "outline",
-          size: "large",
-          // width: "auto",
-          logo_alignment: "center",
-          // type: 'icon'
-        }
-      );
+      // google.accounts.id.initialize({
+      //   client_id:
+      //     "597521131034-6amd34ifc637c39bhu2dvclns4aptnna.apps.googleusercontent.com",
+      //   callback: handleGoogleCredentialResponse,
+      // });
+      // google.accounts.id.renderButton(
+      //   document.getElementById("google-signin-button"),
+      //   {
+      //     theme: "outline",
+      //     size: "large",
+      //     // width: "auto",
+      //     logo_alignment: "center",
+      //     // type: 'icon'
+      //   }
+      // );
 
       // Handle Google Sign-In response
-      async function handleGoogleCredentialResponse(response) {
-        const data = jwt_decode(response.credential);
-        const userEmail = data.email;
-        const fullName = data.name;
+      // async function handleGoogleCredentialResponse(response) {
+      //   const data = jwt_decode(response.credential);
+      //   const userEmail = data.email;
+      //   const fullName = data.name;
 
-        // Automatically fill in the email field with the user's Google email
-        if (emailElement) {
-          console.log(userEmail, fullName);
-          emailElement.value = userEmail;
-        }
+      //   // Automatically fill in the email field with the user's Google email
+      //   if (emailElement) {
+      //     console.log(userEmail, fullName);
+      //     emailElement.value = userEmail;
+      //   }
 
-        // Automatically fill in the name field with the user's Google full name
-        if (nameElement) {
-          nameElement.value = fullName;
-        }
+      //   // Automatically fill in the name field with the user's Google full name
+      //   if (nameElement) {
+      //     nameElement.value = fullName;
+      //   }
 
-        // Optionally submit the form automatically after Google Sign-In
-        // emailForm.dispatchEvent(new Event("submit"));
-      }
+      //   // Optionally submit the form automatically after Google Sign-In
+      //   // emailForm.dispatchEvent(new Event("submit"));
+      // }
 
       // 3. Add our own submit handler
       emailForm.onsubmit = async (event) => {
