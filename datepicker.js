@@ -3,6 +3,8 @@ flatpickr(".date-field", {
   dateFormat: "Y-m-d",
 });
 
+// document.getElementById("Date").setAttribute('readonly', true);
+
 document.addEventListener("DOMContentLoaded", function () {
   flatpickr("#Date", {
     onDayCreate: function (dObj, dStr, fp, dayElem) {
@@ -19,4 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     },
   });
+});
+
+document.getElementById("Date").addEventListener('click', function(e) {
+  e.preventDefault();
+  datepicker.open(); // Open Flatpickr programmatically
 });

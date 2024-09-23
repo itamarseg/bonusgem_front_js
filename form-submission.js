@@ -31,11 +31,9 @@ window.Webflow?.push(async () => {
       dateElement = document.getElementById("Date");
 
       nameElement.style.appearance = "none";
-      nameElement.style.borderRadius = 0;
       emailElement.style.appearance = "none";
-      emailElement.style.borderRadius = 0;
       dateElement.style.appearance = "none";
-      dateElement.style.borderRadius = 0;
+      dateElement.style.width = '100%';
 
       // 2. Find the error and success divs
       errorDiv = emailForm.parentElement.querySelector(
