@@ -1,7 +1,7 @@
 // Initialize Flatpickr on the input field
 flatpickr(".date-field", {
   dateFormat: "Y-m-d",
-  disableMobile: true,
+  disableMobile: "true",
 });
 
 flatpickr(".flatpickr-mobile", {
