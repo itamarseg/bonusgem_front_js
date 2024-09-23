@@ -1,6 +1,7 @@
 // Initialize Flatpickr on the input field
 flatpickr(".date-field", {
   dateFormat: "Y-m-d",
+  disableMobile: true,
 });
 
 // document.getElementById("Date").setAttribute('readonly', true);
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.querySelector(".date-field").addEventListener('click', function(e) {
-  e.preventDefault();
-  datepicker.open(); // Open Flatpickr programmatically
-});
+// document.querySelector(".date-field").addEventListener('click', function(e) {
+//   e.preventDefault();
+//   datepicker.open(); // Open Flatpickr programmatically
+// });

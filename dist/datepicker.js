@@ -1,2 +1,2 @@
-(()=>{flatpickr(".date-field",{dateFormat:"Y-m-d"});document.addEventListener("DOMContentLoaded",function(){flatpickr(".date-field",{onDayCreate:function(t,a,n,e){let d=new Date;d.setHours(0,0,0,0),new Date(e.dateObj)>d&&(e.classList.add("future-day"),e.disabled=!0)}})});document.querySelector(".date-field").addEventListener("click",function(t){t.preventDefault(),datepicker.open()});})();
+(()=>{flatpickr(".date-field",{dateFormat:"Y-m-d",disableMobile:!0});document.addEventListener("DOMContentLoaded",function(){flatpickr(".date-field",{onDayCreate:function(a,d,n,t){let e=new Date;e.setHours(0,0,0,0),new Date(t.dateObj)>e&&(t.classList.add("future-day"),t.disabled=!0)}})});})();
 //# sourceMappingURL=datepicker.js.map
