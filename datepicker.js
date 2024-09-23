@@ -4,6 +4,14 @@ flatpickr(".date-field", {
   disableMobile: true,
 });
 
+flatpickr(".flatpickr-mobile", {
+  altInput: true,
+  altFormat: "F j, Y",
+  dateFormat: "Y-m-d",
+  placeholder: "Birth Date",
+  mobileInput: true     // ensures mobile-friendly input
+});
+
 // document.getElementById("Date").setAttribute('readonly', true);
 
 document.addEventListener("DOMContentLoaded", function () {
