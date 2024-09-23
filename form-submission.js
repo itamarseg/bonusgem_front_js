@@ -29,6 +29,11 @@ window.Webflow?.push(async () => {
       nameElement = document.getElementById("name");
       emailElement = document.getElementById("email");
       dateElement = document.querySelector(".date-field");
+      if (window.innerWidth <= 768) {
+        dateMobile = document.querySelector('.flatpickr-mobile');
+        dateElement.style.appearance = "none";
+      }
+      
 
       nameElement.style.appearance = "none";
       emailElement.style.appearance = "none";
