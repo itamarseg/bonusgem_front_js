@@ -28,12 +28,11 @@ window.Webflow?.push(async () => {
       // Find select elements
       nameElement = document.getElementById("name");
       emailElement = document.getElementById("email");
-      dateElement = document.getElementById("Date");
+      dateElement = document.querySelector(".date-field");
 
       nameElement.style.appearance = "none";
       emailElement.style.appearance = "none";
       dateElement.style.appearance = "none";
-      dateElement.style.width = '100%';
 
       // 2. Find the error and success divs
       errorDiv = emailForm.parentElement.querySelector(

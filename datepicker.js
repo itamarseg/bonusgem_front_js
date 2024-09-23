@@ -6,7 +6,7 @@ flatpickr(".date-field", {
 // document.getElementById("Date").setAttribute('readonly', true);
 
 document.addEventListener("DOMContentLoaded", function () {
-  flatpickr("#Date", {
+  flatpickr(".date-field", {
     onDayCreate: function (dObj, dStr, fp, dayElem) {
       // Get today's date
       const today = new Date();
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.getElementById("Date").addEventListener('click', function(e) {
+document.querySelector(".date-field").addEventListener('click', function(e) {
   e.preventDefault();
   datepicker.open(); // Open Flatpickr programmatically
 });
