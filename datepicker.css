@@ -92,7 +92,7 @@ input:-webkit-autofill:active{
     caret-color: black !important;
 }
 
-input[type="text"] {
+input[type="date"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
