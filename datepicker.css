@@ -91,3 +91,9 @@ input:-webkit-autofill:active{
     -webkit-text-fill-color: black !important; /* Text color */
     caret-color: black !important;
 }
+
+input[type="text"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
