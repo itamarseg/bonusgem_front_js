@@ -122,3 +122,8 @@ input::-webkit-input-placeholder {
   input::placeholder {
     color: black;
   }
+
+  input.flatpickr-mobile::placeholder {
+    color: black;  /* Custom placeholder color */
+    opacity: 1;   /* Ensure visibility */
+  }
