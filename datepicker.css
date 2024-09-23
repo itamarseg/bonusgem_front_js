@@ -97,3 +97,28 @@ input[type="date"] {
     -webkit-appearance: none;
     -moz-appearance: none;
 }
+
+/* Chrome, Safari, Opera */
+input::-webkit-input-placeholder {
+    color: black;
+  }
+  
+  /* Firefox 19+ */
+  input::-moz-placeholder {
+    color: black;
+  }
+  
+  /* IE 10+ */
+  input:-ms-input-placeholder {
+    color: black;
+  }
+  
+  /* Edge */
+  input::-ms-input-placeholder {
+    color: black;
+  }
+  
+  /* Standard */
+  input::placeholder {
+    color: black;
+  }
