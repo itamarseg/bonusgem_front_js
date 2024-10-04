@@ -109,6 +109,7 @@ window.Webflow?.push(async () => {
           const queryString = window.location.search;
           const urlParams = new URLSearchParams(queryString);
 
+          const cid = urlParams.get("cid");
           const tid = urlParams.get("ecid");
           const aff = urlParams.get("aff") || "";
           const s1 = urlParams.get("s1") || "";
@@ -165,9 +166,11 @@ window.Webflow?.push(async () => {
           // Redirect to another page after a short delay (e.g., 1/2 seconds)
           // const smartLink = "https://www.hevuv.com/cmp/GJRHSG88/3MQKZT/?";
           // const params = `transaction_id=${tid}&source_id=${aff}&sub1=${s1}&sub2=${s2}&sub3=${s3}&sub4=${s4}&sub5=${tid}`;
-          // setTimeout(() => {
-          //   window.location.href = `${smartLink}${params}`;
-          // }, 500);
+          const smartLink = "https://bgtracking.com/click/?";
+          const params = `transaction_id=${tid}&source_id=${aff}&sub1=${s1}&sub2=${s2}&sub3=${s3}&sub4=${s4}&sub5=${tid}&cid=${cid}`;
+          setTimeout(() => {
+            window.location.href = `${smartLink}${params}`;
+          }, 500);
         } catch (e) {
           // 8. Handle the error
           if (e instanceof Error) {
