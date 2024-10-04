@@ -134,6 +134,7 @@ window.Webflow?.push(async () => {
             s4: s4,
             ip_address: ip,
             user_agent: userAgent,
+            clickid: cid
           };
           console.log("data to send to server:", data);
           // 6. Send the data to the server 
