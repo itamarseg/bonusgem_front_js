@@ -109,7 +109,7 @@ window.Webflow?.push(async () => {
           const queryString = window.location.search;
           const urlParams = new URLSearchParams(queryString);
 
-          const tid = urlParams.get("cid");
+          const tid = urlParams.get("ecid");
           const aff = urlParams.get("aff") || "";
           const s1 = urlParams.get("s1") || "";
           const s2 = urlParams.get("s2") || "";
