@@ -163,6 +163,11 @@ window.Webflow?.push(async () => {
           emailForm.style.display = "none";
           successDiv.style.display = "block";
 
+          // Track signup conversion in Voluum for BonusGem
+          // `https://bgtracking.com/conversion.gif?cid=${cid}&txid=${tid}&et=signup`
+          const voluumSignupPostback = `https://bgtracking.com/conversion.gif?cid=${cid}&txid=${tid}&et=signup`;
+          await fetch(voluumSignupPostback);
+
           // Redirect to another page after a short delay (e.g., 1/2 seconds)
           // const smartLink = "https://www.hevuv.com/cmp/GJRHSG88/3MQKZT/?";
           // const params = `transaction_id=${tid}&source_id=${aff}&sub1=${s1}&sub2=${s2}&sub3=${s3}&sub4=${s4}&sub5=${tid}`;
