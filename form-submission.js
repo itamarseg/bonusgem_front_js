@@ -159,10 +159,6 @@ window.Webflow?.push(async () => {
             throw new Error("Response status is not 200");
           }
 
-          // If backend validation and processing succeed, track signup conversion in Voluum
-          const voluumSignupPostback = `https://bgtracking.com/postback?cid=${cid}&txid=${tid}&et=signup`;
-          await fetch(voluumSignupPostback);
-
           // Hide the form and show the success message
           emailForm.style.display = "none";
           successDiv.style.display = "block";
