@@ -30,10 +30,9 @@ window.Webflow?.push(async () => {
       emailElement = document.getElementById("email");
       dateElement = document.querySelector(".date-field");
       if (window.innerWidth <= 768) {
-        dateMobile = document.querySelector('.flatpickr-mobile');
+        dateMobile = document.querySelector(".flatpickr-mobile");
         dateElement.style.appearance = "none";
       }
-      
 
       nameElement.style.appearance = "none";
       emailElement.style.appearance = "none";
@@ -134,10 +133,10 @@ window.Webflow?.push(async () => {
             s4: s4,
             ip_address: ip,
             user_agent: userAgent,
-            clickid: cid
+            clickid: cid,
           };
           console.log("data to send to server:", data);
-          // 6. Send the data to the server 
+          // 6. Send the data to the server
           // https://bonusgem-api-afvof.ondigitalocean.app/v1/submission
           //http://127.0.0.1:8000/v1/submission
           const response = await fetch(
@@ -159,6 +158,10 @@ window.Webflow?.push(async () => {
             }
             throw new Error("Response status is not 200");
           }
+
+          // If backend validation and processing succeed, track signup conversion in Voluum
+          const voluumSignupPostback = `https://bgtracking.com/postback?cid=${cid}&txid=${tid}&et=signup`;
+          await fetch(voluumSignupPostback);
 
           // Hide the form and show the success message
           emailForm.style.display = "none";
