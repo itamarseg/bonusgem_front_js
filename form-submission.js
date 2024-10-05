@@ -159,14 +159,17 @@ window.Webflow?.push(async () => {
             throw new Error("Response status is not 200");
           }
 
-          // Hide the form and show the success message
-          emailForm.style.display = "none";
-          successDiv.style.display = "block";
-
           // Track signup conversion in Voluum for BonusGem
           // `https://bgtracking.com/conversion.gif?cid=${cid}&txid=${tid}&et=signup`
           const voluumSignupPostback = `https://bgtracking.com/conversion.gif?cid=${cid}&txid=${tid}&et=signup`;
-          await fetch(voluumSignupPostback);
+          await fetch(voluumSignupPostback, {
+            method: "GET",
+            mode: "no-cors",
+          });
+
+          // Hide the form and show the success message
+          emailForm.style.display = "none";
+          successDiv.style.display = "block";
 
           // Redirect to another page after a short delay (e.g., 1/2 seconds)
           // const smartLink = "https://www.hevuv.com/cmp/GJRHSG88/3MQKZT/?";
