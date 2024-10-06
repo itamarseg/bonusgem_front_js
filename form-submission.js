@@ -168,7 +168,7 @@ window.Webflow?.push(async () => {
           // const params = `transaction_id=${tid}&source_id=${aff}&sub1=${s1}&sub2=${s2}&sub3=${s3}&sub4=${s4}&sub5=${tid}`;
           
           const smartLink = "https://bgtracking.com/127682d4-4160-48ce-b003-88aa443950e0?";
-          const params = `aff=${aff}&s1=${s1}&s2=${s2}&s3=${s3}&s4=${s4}&s5=${s5}&ecid=${tid}&cid=${cid}`;
+          const params = `aff=${aff}&s1=${s1}&s2=${s2}&s3=${s3}&s4=${s4}&ecid=${tid}&cid=${cid}`;
           setTimeout(() => {
             window.location.href = `${smartLink}${params}`;
           }, 500);
