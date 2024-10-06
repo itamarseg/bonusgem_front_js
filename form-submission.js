@@ -108,8 +108,8 @@ window.Webflow?.push(async () => {
           const queryString = window.location.search;
           const urlParams = new URLSearchParams(queryString);
 
-          const cid = urlParams.get("cid");
-          const tid = urlParams.get("ecid");
+          const cid = urlParams.get("cid") || "";
+          const tid = urlParams.get("ecid") || "";
           const aff = urlParams.get("aff") || "";
           const s1 = urlParams.get("s1") || "";
           const s2 = urlParams.get("s2") || "";
@@ -159,14 +159,6 @@ window.Webflow?.push(async () => {
             throw new Error("Response status is not 200");
           }
 
-          // Track signup conversion in Voluum for BonusGem
-          // `https://bgtracking.com/conversion.gif?cid=${cid}&txid=${tid}&et=signup`
-          const voluumSignupPostback = `https://bgtracking.com/conversion.gif?cid=${cid}&txid=${tid}&et=signup`;
-          await fetch(voluumSignupPostback, {
-            method: "GET",
-            mode: "no-cors",
-          });
-
           // Hide the form and show the success message
           emailForm.style.display = "none";
           successDiv.style.display = "block";
@@ -174,8 +166,9 @@ window.Webflow?.push(async () => {
           // Redirect to another page after a short delay (e.g., 1/2 seconds)
           // const smartLink = "https://www.hevuv.com/cmp/GJRHSG88/3MQKZT/?";
           // const params = `transaction_id=${tid}&source_id=${aff}&sub1=${s1}&sub2=${s2}&sub3=${s3}&sub4=${s4}&sub5=${tid}`;
-          const smartLink = "https://bgtracking.com/click/?";
-          const params = `transaction_id=${tid}&source_id=${aff}&sub1=${s1}&sub2=${s2}&sub3=${s3}&sub4=${s4}&sub5=${tid}&cid=${cid}`;
+          
+          const smartLink = "https://bgtracking.com/127682d4-4160-48ce-b003-88aa443950e0?";
+          const params = `aff=${affiliate_id}&s1=${sub1}&s2=${sub2}&s3=${sub3}&s4=${sub4}&s5=${sub5}&ecid=${transaction_id}&cid=${cid}`;
           setTimeout(() => {
             window.location.href = `${smartLink}${params}`;
           }, 500);
