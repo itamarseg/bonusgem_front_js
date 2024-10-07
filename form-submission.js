@@ -88,6 +88,49 @@ window.Webflow?.push(async () => {
       //   // emailForm.dispatchEvent(new Event("submit"));
       // }
 
+      // Function to detect the browser from user-agent string
+      function detectBrowser() {
+        const userAgent = navigator.userAgent;
+        let browserName = "Unknown";
+        let browserVersion = "";
+
+        if (
+          userAgent.indexOf("Chrome") > -1 &&
+          userAgent.indexOf("Edg") === -1
+        ) {
+          browserName = "Chrome";
+          browserVersion = userAgent.match(/Chrome\/([\d.]+)/)?.[1] || "";
+        } else if (
+          userAgent.indexOf("Safari") > -1 &&
+          userAgent.indexOf("Chrome") === -1
+        ) {
+          browserName = "Safari";
+          browserVersion = userAgent.match(/Version\/([\d.]+)/)?.[1] || "";
+        } else if (userAgent.indexOf("Firefox") > -1) {
+          browserName = "Firefox";
+          browserVersion = userAgent.match(/Firefox\/([\d.]+)/)?.[1] || "";
+        } else if (userAgent.indexOf("Edg") > -1) {
+          browserName = "Edge";
+          browserVersion = userAgent.match(/Edg\/([\d.]+)/)?.[1] || "";
+        } else if (
+          userAgent.indexOf("Opera") > -1 ||
+          userAgent.indexOf("OPR") > -1
+        ) {
+          browserName = "Opera";
+          browserVersion =
+            userAgent.match(/Opera\/([\d.]+)|OPR\/([\d.]+)/)?.[1] || "";
+        } else if (
+          userAgent.indexOf("MSIE") > -1 ||
+          !!document.documentMode === true
+        ) {
+          // IE
+          browserName = "Internet Explorer";
+          browserVersion = userAgent.match(/MSIE ([\d.]+)/)?.[1] || "";
+        }
+
+        return { browserName, browserVersion };
+      }
+
       // 3. Add our own submit handler
       emailForm.onsubmit = async (event) => {
         try {
@@ -104,6 +147,19 @@ window.Webflow?.push(async () => {
           }
 
           const userAgent = navigator.userAgent;
+
+          // 5. Detect device type
+          const deviceType = /Mobi|Android/i.test(userAgent)
+            ? "Mobile"
+            : /Tablet/i.test(userAgent)
+            ? "Tablet"
+            : "Desktop";
+
+          // 6. Detect language preference
+          const language = navigator.language || navigator.userLanguage;
+
+          // 7. Detect browser type and version
+          const { browserName, browserVersion } = detectBrowser();
 
           const queryString = window.location.search;
           const urlParams = new URLSearchParams(queryString);
@@ -133,6 +189,10 @@ window.Webflow?.push(async () => {
             s4: s4,
             ip_address: ip,
             user_agent: userAgent,
+            device_type: deviceType,    // Device Type
+            language: language,         // Language
+            browser_name: browserName,  // Browser Name
+            browser_version: browserVersion, // Browser Version
             clickid: cid,
           };
           console.log("data to send to server:", data);
@@ -166,8 +226,9 @@ window.Webflow?.push(async () => {
           // Redirect to another page after a short delay (e.g., 1/2 seconds)
           // const smartLink = "https://www.hevuv.com/cmp/GJRHSG88/3MQKZT/?";
           // const params = `transaction_id=${tid}&source_id=${aff}&sub1=${s1}&sub2=${s2}&sub3=${s3}&sub4=${s4}&sub5=${tid}`;
-          
-          const smartLink = "https://bgtracking.com/127682d4-4160-48ce-b003-88aa443950e0?";
+
+          const smartLink =
+            "https://bgtracking.com/127682d4-4160-48ce-b003-88aa443950e0?";
           const params = `aff=${aff}&s1=${s1}&s2=${s2}&s3=${s3}&s4=${s4}&ecid=${tid}&cid=${cid}`;
           setTimeout(() => {
             window.location.href = `${smartLink}${params}`;
