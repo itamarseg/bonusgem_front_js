@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../home-page.js"],
-  "sourcesContent": ["document.getElementById('signup-button').addEventListener('click', function(event) {\n    event.preventDefault();\n    window.location.href = 'https://www.pimuy.com/TPL7P8MS/XK5NQPL4/';\n});\n"],
-  "mappings": "MAAA,SAAS,eAAe,eAAe,EAAE,iBAAiB,QAAS,SAASA,EAAO,CAC/EA,EAAM,eAAe,EACrB,OAAO,SAAS,KAAO,0CAC3B,CAAC",
+  "sourcesContent": ["document.getElementById('signup-button').addEventListener('click', function(event) {\n    event.preventDefault();\n    window.location.href = 'https://bgtracking.com/click/14';\n});\n"],
+  "mappings": "MAAA,SAAS,eAAe,eAAe,EAAE,iBAAiB,QAAS,SAASA,EAAO,CAC/EA,EAAM,eAAe,EACrB,OAAO,SAAS,KAAO,iCAC3B,CAAC",
   "names": ["event"]
 }
