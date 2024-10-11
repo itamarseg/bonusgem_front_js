@@ -172,6 +172,7 @@ window.Webflow?.push(async () => {
           const s3 = urlParams.get("s3") || "";
           const s4 = urlParams.get("s4") || "";
           const cpid = urlParams.get("cpid") || "";
+          const fbid = urlParams.get("fbclid") || "";
 
           const formData = new FormData(emailForm);
 
@@ -195,7 +196,8 @@ window.Webflow?.push(async () => {
             browser_name: browserName,  // Browser Name
             browser_version: browserVersion, // Browser Version
             clickid: cid,
-            campaign_id: cpid
+            campaign_id: cpid,
+            fb_clickid: fbid
           };
           console.log("data to send to server:", data);
           // 6. Send the data to the server
