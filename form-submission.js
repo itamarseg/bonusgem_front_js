@@ -161,6 +161,12 @@ window.Webflow?.push(async () => {
           // 7. Detect browser type and version
           const { browserName, browserVersion } = detectBrowser();
 
+          function getCookieValue(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(";").shift();
+          }
+
           const queryString = window.location.search;
           const urlParams = new URLSearchParams(queryString);
 
@@ -172,7 +178,7 @@ window.Webflow?.push(async () => {
           const s3 = urlParams.get("s3") || "";
           const s4 = urlParams.get("s4") || "";
           const cpid = urlParams.get("cpid") || "";
-          const fbid = urlParams.get("fbclid") || "";
+          const fbid = getCookieValue("_fbc") || "";
 
           const formData = new FormData(emailForm);
 
@@ -191,13 +197,13 @@ window.Webflow?.push(async () => {
             s4: s4,
             ip_address: ip,
             user_agent: userAgent,
-            device_type: deviceType,    // Device Type
-            language: language,         // Language
-            browser_name: browserName,  // Browser Name
+            device_type: deviceType, // Device Type
+            language: language, // Language
+            browser_name: browserName, // Browser Name
             browser_version: browserVersion, // Browser Version
             clickid: cid,
             campaign_id: cpid,
-            fb_clickid: fbid
+            fb_clickid: fbid,
           };
           console.log("data to send to server:", data);
           // 6. Send the data to the server
@@ -226,10 +232,6 @@ window.Webflow?.push(async () => {
           // Hide the form and show the success message
           emailForm.style.display = "none";
           successDiv.style.display = "block";
-
-          // Redirect to another page after a short delay (e.g., 1/2 seconds)
-          // const smartLink = "https://www.hevuv.com/cmp/GJRHSG88/3MQKZT/?";
-          // const params = `transaction_id=${tid}&source_id=${aff}&sub1=${s1}&sub2=${s2}&sub3=${s3}&sub4=${s4}&sub5=${tid}`;
 
           const smartLink =
             "https://bgtracking.com/127682d4-4160-48ce-b003-88aa443950e0?";
