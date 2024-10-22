@@ -233,22 +233,13 @@ window.Webflow?.push(async () => {
           emailForm.style.display = "none";
           successDiv.style.display = "block";
           let smartLink;
-          let params;
+          let params = `aff=${aff}&s1=${s1}&s2=${s2}&s3=${s3}&s4=${s4}&ecid=${tid}&cid=${cid}`;
           if (cpid === "4f244fe9-6f46-4cdc-a5f3-f374de1a4b36") {
-            const ad_id = urlParams.get("ad_id");
-            const adset_id = urlParams.get("adset_id");
-            const campaign_id = urlParams.get("campaign_id");
-            const ad_name = urlParams.get("ad_name");
-            const adset_name = urlParams.get("adset_name");
-            const campaign_name = urlParams.get("campaign_name");
-            const source = urlParams.get("source");
-            const placement = urlParams.get("placement");
-            params = `ad_id=${ad_id}&adset_id=${adset_id}&campaign_id=${campaign_id}&ad_name=${ad_name}&adset_name=${adset_name}&campaign_name=${campaign_name}&source=${source}&placement=${placement}`;
             smartLink = `https://bgtracking.com/8786a759-e9f1-4a6d-a5b6-a2837876fc67?`;
           } else {
             smartLink =
               "https://bgtracking.com/127682d4-4160-48ce-b003-88aa443950e0?";
-            params = `aff=${aff}&s1=${s1}&s2=${s2}&s3=${s3}&s4=${s4}&ecid=${tid}&cid=${cid}`;
+            ;
           }
 
           setTimeout(() => {
