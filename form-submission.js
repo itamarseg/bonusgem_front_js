@@ -234,7 +234,7 @@ window.Webflow?.push(async () => {
           successDiv.style.display = "block";
           let smartLink;
           let params = `aff=${aff}&s1=${s1}&s2=${s2}&s3=${s3}&s4=${s4}&ecid=${tid}&cid=${cid}`;
-          if (cpid === "4f244fe9-6f46-4cdc-a5f3-f374de1a4b36") {
+          if (cpid === "4f244fe9-6f46-4cdc-a5f3-f374de1a4b36" || cpid === "f9b49d82-1a35-4ad5-91b3-278ecfa966bf") {
             smartLink = `https://bgtracking.com/8786a759-e9f1-4a6d-a5b6-a2837876fc67?`;
           } else {
             smartLink =
