@@ -245,9 +245,8 @@ window.Webflow?.push(async () => {
             params = `adset_id=${adset_id}&campaign_id=${campaign_id}&source=${source}&placement=${placement}&user_id=${cid}`;
             smartLink = `https://bgtracking.com/8786a759-e9f1-4a6d-a5b6-a2837876fc67?`;
           } else {
-            smartLink =
-              params = `aff=${aff}&s1=${s1}&s2=${s2}&s3=${s3}&s4=${s4}&ecid=${tid}&s5=${cid}`;
-            ("https://bgtracking.com/127682d4-4160-48ce-b003-88aa443950e0?");
+            params = `aff=${aff}&s1=${s1}&s2=${s2}&s3=${s3}&s4=${s4}&ecid=${tid}&s5=${cid}`;
+            smartLink = "https://bgtracking.com/127682d4-4160-48ce-b003-88aa443950e0?";
           }
 
           setTimeout(() => {
