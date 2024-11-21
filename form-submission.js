@@ -244,6 +244,9 @@ window.Webflow?.push(async () => {
             const placement = urlParams.get("placement") || "";
             params = `adset_id=${adset_id}&campaign_id=${campaign_id}&source=${source}&placement=${placement}&user_id=${cid}`;
             smartLink = `https://bgtracking.com/8786a759-e9f1-4a6d-a5b6-a2837876fc67?`;
+          } else if (cpid === "d81c84e7-a589-4f90-8273-6fd6cff68457") {
+            params = `aff=${aff}&s1=${s1}&s2=${s2}&s3=${s3}&s4=${s4}&ecid=${tid}&s5=${cid}`;
+            smartLink = "https://bgtracking.com/d81c84e7-a589-4f90-8273-6fd6cff68457"
           } else {
             params = `aff=${aff}&s1=${s1}&s2=${s2}&s3=${s3}&s4=${s4}&ecid=${tid}&s5=${cid}`;
             smartLink = "https://bgtracking.com/127682d4-4160-48ce-b003-88aa443950e0?";
